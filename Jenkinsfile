@@ -50,7 +50,7 @@ pipeline {
                         }*/
                     withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
                         sh 'printenv'
-                        sh 'sudo docker build -t karydock/appnode-oct:""$GIT_COMMIT"" .'
+                        sh 'docker build -t karydock/appnode-oct:""$GIT_COMMIT"" .'
                         sh 'docker push karydock/appnode-oct:""$GIT_COMMIT""'
                         }
                     
