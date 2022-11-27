@@ -3,7 +3,7 @@ pipeline {
     
      agent any
     
-  tools {nodejs "NodeJS 17.9.1"}
+  tools {nodejs "NodeJS 19.1.0"}
     stages {
         
         stage('Deployer app node'){
