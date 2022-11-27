@@ -32,7 +32,7 @@ pipeline {
              steps{
                 script{
                    
-                   dockerImage = docker.build("karydock/appnode-oct:latest")
+                   dockerImage = docker.build("karydock/appnode-oct:latest", "./Dockerfile")
                     
                 }
              }
