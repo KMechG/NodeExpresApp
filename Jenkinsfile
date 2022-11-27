@@ -31,9 +31,7 @@ pipeline {
         stage('Build image with docker') {
              steps{
                 script{
-                   sh 'groupadd docker'
-                    sh 'usermod -aG docker ${USER}'
-                    
+                  
                    dockerImage = docker.build("karydock/appnode-oct:latest")
                     
                 }
