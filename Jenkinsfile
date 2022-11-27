@@ -42,10 +42,16 @@ pipeline {
             steps{
                 script{
            
-                    withDockerRegistry([credentialsId: "docker-hub", url:"https://registry.hub.docker.com"]){
-                    dockerImage.push()
+                   /* withDockerRegistry([credentialsId: "docker-hub", url:"https://registry.hub.docker.com"]){
+                    dockerImage.push()}*/
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                            dockerImage.push("${env.BUILD_NUMBER}")
+                            dockerImage.push("latest")
+                        }
                     
-              }
+                    
+                    
+                    
                }
              }
         }
