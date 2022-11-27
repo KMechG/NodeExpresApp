@@ -44,9 +44,14 @@ pipeline {
            
                    /* withDockerRegistry([credentialsId: "docker-hub", url:"https://hub.docker.com/"]){
                     dockerImage.push()}*/
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                   /* docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
                             dockerImage.push("${env.BUILD_NUMBER}")
                             dockerImage.push("latest")
+                        }*/
+                    withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+                        sh 'printenv'
+                        sh 'sudo docker build -t karydock/appnode-oct:""$GIT_COMMIT"" .'
+                        sh 'docker push karydock/appnode-oct:""$GIT_COMMIT""'
                         }
                     
                     
