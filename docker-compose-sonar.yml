@@ -4,7 +4,7 @@ services:
 
   SonarQube:
 
-    image: sonarQube:community
+    image: sonarqube:community
 
     depends_on:
 
