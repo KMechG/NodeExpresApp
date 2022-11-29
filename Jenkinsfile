@@ -34,12 +34,13 @@ pipeline {
                 steps {
                    
                      //sh "mvn dependency-check:check"
-                      dependencyCheck additionalArguments: '-f "HTML, XML,CSV" -s .',odcInstallation: 'OWASP-DC'
+                      dependencyCheck additionalArguments: '--format HTML --format XML --suppression suppression.xml',odcInstallation: 'OWASP-DC'
                          
                        }
                      post{
                         always {
-                             dependencyChedkPublisher pattern: 'target/dependency-check-report.xml'
+                           dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+
                              }
                         }
               }
