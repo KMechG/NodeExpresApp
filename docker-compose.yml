@@ -13,7 +13,7 @@ services:
              parallelism: 2
              delay: 15s
         ports:
-            - "8080:8080"
+            - "3080:3080"
         links:
             - mongo
     mongo:
