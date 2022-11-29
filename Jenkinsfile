@@ -28,6 +28,19 @@ pipeline {
             sh 'npm test'
           }
         }*/
+        stage('Vulnerability Scan - Docker') {
+                steps {
+                     sh "mvn mvn dependency-check:check"
+                       }
+                     post{
+                        always {
+                             dependencyChedkPublisher pattern: 'target/dependency-check-report.xml'
+                             }
+                        }
+              }
+        
+        
+        
         stage('Build image with docker') {
              steps{
                 script{
