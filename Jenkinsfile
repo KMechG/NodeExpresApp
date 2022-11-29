@@ -33,7 +33,8 @@ pipeline {
         stage('Vulnerability Scan - Docker') {
                 steps {
                    
-                     sh "mvn dependency-check:check"
+                     //sh "mvn dependency-check:check"
+                      dependencyCheck additionalArguments: '-f "HTML, XML,CSV" -s .'
                          
                        }
                      post{
