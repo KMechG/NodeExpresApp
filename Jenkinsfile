@@ -3,7 +3,9 @@ pipeline {
     
      agent any
     
-  tools {nodejs "NodeJS 19.1.0"}
+  tools {nodejs "NodeJS 19.1.0"
+          maven 'mvn'
+        }
     stages {
         
         stage('Deployer app node'){
@@ -30,9 +32,9 @@ pipeline {
         }*/
         stage('Vulnerability Scan - Docker') {
                 steps {
-                    withMaven(maven: 'mvn') {
+                   
                      sh "mvn dependency-check:check"
-                         }
+                         
                        }
                      post{
                         always {
