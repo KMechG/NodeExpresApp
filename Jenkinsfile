@@ -34,7 +34,7 @@ pipeline {
                 steps {
                    
                      //sh "mvn dependency-check:check"
-                      dependencyCheck additionalArguments: '-f "HTML, XML,CSV" -s .'
+                      dependencyCheck additionalArguments: '-f "HTML, XML,CSV" -s .',odcInstallation: 'OWASP-DC'
                          
                        }
                      post{
