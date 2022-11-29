@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test" : "mocha test/test.js"
+    "test": "mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
     "mongo": "^0.1.0",
     "mongodb": "^4.7.0",
     "supertest": "^6.2.3"
+  },
+  "devDependencies": {
+    "owasp-dependency-check": "0.0.21"
   }
 }
