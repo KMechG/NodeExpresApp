@@ -17,8 +17,7 @@ pipeline {
          sh '<<Build Command>>'
       }
     }  
-    
-            
+         
     stage('Test') {
       steps {
       // test
