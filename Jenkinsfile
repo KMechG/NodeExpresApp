@@ -36,12 +36,12 @@ pipeline {
                      //sh "mvn dependency-check:check"
                      // dependencyCheck additionalArguments: '--format HTML --format XML --suppression suppression.xml',odcInstallation: 'OWASP-DC'
                          sh('mkdir -p build/owasp')
-dependencycheck additionalArguments: '--project plastinforme --scan ./ --data /home/jenkins/security/owasp-nvd/ --out build/owasp/dependency-check-report.xml --format XML', odcInstallation: 'OWASP-DC'
+dependencycheck additionalArguments: '--project plastinforme --scan ./ --data /home/jenkins/security/owasp-nvd/ --out reports/dependency-check-report.xml --format XML', odcInstallation: 'OWASP-DC'
                        }
                      post{
                         always {
                           // dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-                            dependencyCheckPublisher pattern: 'build/owasp/dependency-check-report.xml'
+                            dependencyCheckPublisher pattern: 'reports/dependency-check-report.xml'
 
                              }
                         }
