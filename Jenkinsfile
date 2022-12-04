@@ -20,7 +20,7 @@ pipeline {
               
             sh 'npm --version'  
               
-            sh 'npm install & npm run build'  
+            sh 'npm install '  
             sh 'npm install express'
             sh 'npm install mongo'
             sh 'npm install mocha -g'
