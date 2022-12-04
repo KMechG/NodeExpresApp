@@ -38,7 +38,7 @@ pipeline {
                      //sh "mvn dependency-check:check"
                      // dependencyCheck additionalArguments: '--format HTML --format XML --suppression suppression.xml',odcInstallation: 'OWASP-DC'
                        //  sh('mkdir -p build/owasp')
-dependencyCheck additionalArguments: '--scan ./ --out dependency-check-report.xml --format XML', odcInstallation: 'OWASP-DC'
+dependencyCheck additionalArguments: '--scan ./ --out dependency-check-report.xml --format XML --suppression suppression.xml', odcInstallation: 'OWASP-DC'
                        }
                      post{
                         always {
