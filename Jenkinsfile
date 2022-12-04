@@ -3,7 +3,7 @@ pipeline {
     
      agent any
     
-  tools {nodejs "NodeJS 14.21.1"
+  tools {nodejs "NodeJS 19.2.0"
           maven 'mvn'
         }
     stages {
@@ -36,7 +36,7 @@ pipeline {
                      //sh "mvn dependency-check:check"
                      // dependencyCheck additionalArguments: '--format HTML --format XML --suppression suppression.xml',odcInstallation: 'OWASP-DC'
                          sh('mkdir -p build/owasp')
-dependencycheck additionalArguments: ' --nodeAuditSkipDevDependencies --scan ./  --out dependency-check-report.xml --format XML ', odcInstallation: 'OWASP-DC'
+dependencycheck additionalArguments: ' --disableNodeJS --scan ./  --out dependency-check-report.xml --format XML ', odcInstallation: 'OWASP-DC'
                        }
                      post{
                         always {
