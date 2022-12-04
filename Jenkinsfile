@@ -32,6 +32,32 @@ pipeline {
             sh 'npm test'
           }
         }*/
+        
+     stage('SonarQube analysis') {
+      steps {
+        script {
+          def scannerHome = tool 'SonarQube';
+          withSonarQubeEnv('SonarQube') {
+            sh '${tool("SonarQube ")}/bin/sonar-scanner -Dsonar.projectKey=pipdevsecops -Dsonar.projectName=pipdevsecops'
+          }
+        }
+      }
+    }
+    stage('Quality gate') {
+      steps {
+        script {
+          def qualitygate = waitForQualityGate()
+          sleep(10)
+          if (qualitygate.status != "OK") {
+            waitForQualityGate abortPipeline: true
+          }
+        }
+      }
+    }
+        
+        
+        
+        
         stage('Vulnerability Scan - Docker') {
                 steps {
                    
