@@ -38,7 +38,7 @@ pipeline {
         script {
           def scannerHome = tool 'SonarQube';
           withSonarQubeEnv('SonarQube') {
-            sh '${tool("SonarQube ")}/bin/sonar-scanner -Dsonar.projectKey=pipdevsecops -Dsonar.projectName=pipdevsecops'
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=pipdevsecops -Dsonar.projectName=pipdevsecops"
           }
         }
       }
